@@ -1,6 +1,8 @@
 var currentQuestionIndex = 0;
 var time = questions.length * 15;
 var timerId;
+var sfxRight = new Audio("Right.mp3");
+var sfxWrong = new Audio("Wrong.mp3");
 
 // variables to reference DOM elements
 var questionsEl = document.getElementById("questions");
@@ -11,11 +13,9 @@ var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 
-// sound effects
-var sfxRight = new Audio("assets/sfx/correct.wav");
-var sfxWrong = new Audio("assets/sfx/incorrect.wav");
 
 function startQuiz() {
+    console.log(time)
   // hide start screen
   var startScreen = document.getElementById("start-screen");
   startScreen.setAttribute("class", "start hide");
@@ -28,6 +28,8 @@ function startQuiz() {
   }, 1000);
   // show starting time
   timerEl.textContent = time;
+
+  console.log(time)
 
   getQuestion();
 }
